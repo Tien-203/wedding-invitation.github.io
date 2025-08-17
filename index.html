@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/7b12bcc245.js" crossorigin="anonymous"></script>
-    <title>Wedding Invite</title>
+    <title>Thiệp Cưới</title>
 </head>
 <body>
 
@@ -16,26 +16,25 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="logo">A&G</label>
+
         <ul class="text">
-            <li><a href="#story" onclick="myFunction()">OUR STORY</a></li>
-            <li><a href="#stay" onclick="myFunction()">TRAVEL & STAY</a></li>
-            <li><a href="#registry" onclick="myFunction()">PROMISES</a></li>
+            <li><a href="#story" onclick="myFunction()">CÂU CHUYỆN TÌNH YÊU</a></li>
+            <li><a href="#stay" onclick="myFunction()">ĐỊA ĐIỂM TỔ CHỨC</a></li>
+            <li><a href="#registry" onclick="myFunction()">LỜI CẢM ƠN</a></li>
         </ul>
     </nav>
 
 
     <div class="home hz-margin">
-        <h3>We'er getting married</h3>
-        <h1>Thu Hằng & Ngọc Tiến</h1>
+        <!-- Đồng hồ đếm ngược -->
+        <div class="countdown-container">
+            <div id="countdown"></div>
+        </div>
+        
+        <h3>Save The Date <i class="fas fa-heart"></i></h3>
+        <h1 class="couple-names">Thu Hằng & Ngọc Tiến</h1>
         <div class="container-out">
-            
-            <div class="container-in text">
-                Friday, Oct. 20, 2023 <br>
-                ITC Sonar Bangla, Kolkata
-
-                <button class="huge-btn">RSVP</button>
-            </div>
+            <div class="home-img-new reveal"></div>
             <div class="home-img" id="home-img-lg"></div>
         </div>
     </div>
@@ -43,18 +42,29 @@
 
     <div class="home-img home-img-sm"></div>
     <div class="timeline hz-margin reveal">
-        <h2>Celebrating Our Love <br>
-            With Those We Love
+        <h2>Mừng Tình Yêu Của Chúng Tôi <br>
+            Cùng Những Người Thân Yêu
         </h2>
         <div class="timeline-container">
             <div class="timeline-img"></div>
             <div class="timings">
-                <h3>01.&nbsp &nbsp Ceremony</h3>
-                <div class="text">Friday, Oct. 20, 2023 <br>
-                    ITC Sonar Bangla, Kolkata</div>
-                <h3>02.&nbsp &nbsp Reception</h3>
-                <div class="text">Sunday, Oct. 22, 2023 <br>
-                    Poddar Vihar, Kolkata</div>
+                <div class="timing-item">
+                    <h3>01.&nbsp &nbsp Tiệc Cưới Nhà Nữ</h3>
+                    <div class="text">Thứ Bảy, 11 tháng 10, 2025 lúc 10:00</div>
+                    <div class="event-link" onclick="scrollToSection()">Xem địa điểm →</div>
+                </div>
+                
+                <div class="timing-item">
+                    <h3>02.&nbsp &nbsp Tiệc Cưới Nhà Nam</h3>
+                    <div class="text">Chủ Nhật, 12 tháng 10, 2025 lúc 10:00</div>
+                    <div class="event-link" onclick="scrollToSection()">Xem địa điểm →</div>
+                </div>
+                
+                <div class="timing-item">
+                    <h3>03.&nbsp &nbsp Tiệc Báo Hỷ</h3>
+                    <div class="text">Chủ Nhật, 26 tháng 10, 2025 lúc 18:00</div>
+                    <div class="event-link" onclick="scrollToSection()">Xem địa điểm →</div>
+                </div>
             </div>
         </div>
     </div>
@@ -65,23 +75,29 @@
 
 
             <div id="story" class="hz-margin">
-                <h3 class="reveal">Not Just an <br>
-                    Ordinary Love Story
+                <h3 class="reveal">Our Love Story <br>
+                    Câu Chuyện Tình Yêu
                 </h3>
-                <p class="text reveal">We met on ferry. Not sure if the kids remember that one. His female housemates encouraged him to get on it - he wasn't keen, but one night we ended up chatting and the next day we met up at the Tellypara Ghat. We spent nine hours together by the river, and I bought him a cotton candy and he says that's how he knew I was the one.</p>
+                <p class="text reveal">Chúng tôi gặp nhau trong một buổi chiều nắng đẹp. Từ những cuộc trò chuyện đầu tiên, chúng tôi đã cảm nhận được sự đặc biệt trong nhau. Tình yêu nảy nở từ những khoảnh khắc giản đơn - những buổi đi dạo, những câu chuyện dài bên ly cà phê, và những nụ cười ấm áp. Sau những năm tháng bên nhau, chúng tôi quyết định bước vào hành trình mới - xây dựng một tổ ấm hạnh phúc cùng nhau.</p>
             </div>
 
 
             <div class="gallery hz-margin reveal">
-                <div class="gallery-img"></div>
-                <div class="gallery-img"></div>
-                <div class="gallery-img"></div>
+                <div class="gallery-grid">
+                    <div class="gallery-img gallery-img-1"></div>
+                    <div class="gallery-img gallery-img-2"></div>
+                    <div class="gallery-img gallery-img-3"></div>
+                    <div class="gallery-img gallery-img-4"></div>
+                    <div class="gallery-img gallery-img-5"></div>
+                    <div class="gallery-img gallery-img-6"></div>
+                </div>
             </div>
 
 
             <div class="quote reveal">
-                <h1>“To the world you are one person, but to one person you are the world”.</h1>
-                <div class="author text">Anonymous</div>
+                <h1>"In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine"</h1>
+                <div class="author text">"Trên đời này, không trái tim nào dành cho em như của anh. Không tình yêu nào dành cho anh như của em"</div>
+                <div class="quote-author">- Maya Angelou -</div>
             </div>
 
 
@@ -89,28 +105,66 @@
 
 
             <div id="stay">
-                <h2 class="reveal">Travel and Stay</h2>
+                <h2 class="reveal">Wedding Venues - Địa Điểm Tổ Chức</h2>
                 <div class="stay-container reveal">
                     <div class="stay-item">
-                        <h3>01. <br>
-                            Getting There
+                        <h3>
+                            Tiệc Cưới Nhà Nam
                         </h3>
-                        <div class="text">Easy-to-follow <br> directions to the venue</div>
-                        <div class="text links">MAP & DETAILS</div>
+                        <div class="text">Hội trường thôn Hà Xá, xã Triệu Bình, tỉnh Quảng Trị <br> <br> Liên hệ chú rể: 0935851840</div>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1096.0828032088307!2d107.12910255985278!3d16.79100952139237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1755425812373!5m2!1sen!2s" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                     <div class="stay-item">
-                        <h3>02. <br>
-                            Once You're There
+                        <h3>
+                            Tiệc Cưới Nhà Nữ
                         </h3>
-                        <div class="text">Some fun things to do in <br> the area</div>
-                        <div class="text links">OUR RECOMMENDATIONS</div>
+                        <div class="text">Hội trường khu phố Đại Áng, phường Nam Đông Hà, tỉnh Quảng Trị <br> Liên hệ cô dâu: 0905746345</div>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d707.9067396089413!2d107.12530595201926!3d16.802597661554685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3140e5b97b8aa63f%3A0x38e5051504efffed!2zQ2jDuWEgxJHhuqFpIMOBbmc!5e0!3m2!1sen!2s!4v1755425928027!5m2!1sen!2s" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                     <div class="stay-item">
-                        <h3>03. <br>
-                            Where to Stay
+                        <h3>
+                            Tiệc Báo Hỷ
                         </h3>
-                        <div class="text">Hotels and B&Bs <br> to check out</div>
-                        <div class="text links">LODGING OPTIONS</div>
+                        <div class="text">Nhà hàng tiệc cưới Jolie <br> 177 Đ. Phan Chu Trinh, Phường Bình Lợi Trung, Thành phố Hồ Chí Minh</div>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.908480999635!2d106.69779447485756!3d10.818315489333024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175290033c389bf%3A0x62a6356e8cde95e7!2zVHJ1bmcgdMOibSBI4buZaSBuZ2jhu4sgVGnhu4djIEPGsOG7m2kgSm9saWU!5e0!3m2!1sen!2s!4v1755425951090!5m2!1sen!2s" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="gift-section">
+                <div class="gift-container reveal">
+                    <h2>Wedding Gift - Mừng Cưới</h2>
+                    <p class="gift-intro text">
+                        Ngày vui sẽ thật trọn vẹn khi có sự hiện diện của các bạn. Nếu vì lý do bất khả kháng mà không thể tham dự, chúng tôi vẫn vô cùng trân trọng những lời chúc từ xa. Và nếu muốn, bạn cũng có thể gửi quà mừng qua đường dẫn bên dưới.
+                    </p>
+                    <div class="qr-container">
+                        <div class="qr-item reveal">
+                            <div class="qr-header">
+                                <i class="fas fa-heart qr-icon"></i>
+                                <h3>Cô Dâu - Thu Hằng</h3>
+                            </div>
+                            <div class="qr-code">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://drive.google.com/file/d/14KqQC8K_56nQ1MVrQlh6EPgLOd1IASDr/view?usp=drive_link" alt="QR Code Cô Dâu" />
+                            </div>
+                            <p class="qr-info text">Quét mã để gửi lời chúc</p>
+                        </div>
+                        <div class="qr-item reveal">
+                            <div class="qr-header">
+                                <i class="fas fa-heart qr-icon"></i>
+                                <h3>Chú Rể - Ngọc Tiến</h3>
+                            </div>
+                            <div class="qr-code">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://drive.google.com/file/d/1rPIhr9ev8antrHgb-rEA3YIidqVT00U8/view?usp=drive_link" alt="QR Code Chú Rể" />
+                            </div>
+                            <p class="qr-info text">Quét mã để gửi lời chúc</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,11 +172,10 @@
 
             <div id="registry">
                 <div class="registry-container reveal">
-                    <h3>Promises</h3>
+                    <h3>Thank You - Lời Cảm Ơn</h3>
                     <div class="text">
-                        I will provide welfare and happiness for you and the children that we bear and you shall offer me food and help whenever it is required. Together, we will protect our children and home and stand as each other's strength and courage. I will put every other person secodary to you. You make my like complete and promise to respect you. God bless you, my best friend. I pray thee, may my presence fill our life with joy and prospers.
+                        Chúng tôi xin gửi lời cảm ơn chân thành đến tất cả gia đình, bạn bè và những người thân yêu. Sự hiện diện của các bạn trong ngày đặc biệt này chính là món quà ý nghĩa nhất dành cho chúng tôi. Những lời chúc phúc và tình cảm mà mọi người dành cho chúng tôi sẽ là động lực để chúng tôi xây dựng một tổ ấm hạnh phúc và bền vững!
                     </div>
-                    <button class="huge-btn text">BLESS US</button>
                 </div>
                 <div class="registry-img registry-img-lg" id="parallax2"></div>
             </div>
@@ -130,19 +183,14 @@
 
 
             <div class="parting-message reveal">
-                <h1>Hope to See You!</h1>
-                <button class="huge-btn">RSVP</button>
+                <h1>See You Soon</h1>
             </div>
 
-
-            <footer>
-                <h2>Give us a Call</h2>
-                <h2>Amandeep: 123-456-7890</h2>
-                <h2>Gurpreet: 123-456-7890</h2>
-                <div class="text">© 2023 for Aman and Gur. Made by <a href="https://twitter.com/NathArchak" class="text">@NathArchak</a></div>
-            </footer>
         </div>
     </div>
+
+    <!-- Footer spacing -->
+    <div style="height: 10vh;"></div>
 
     <script src="main.js"></script>
 </body>

@@ -1,6 +1,6 @@
 /* <===================TYPOGRAPHY & FONTS===================> */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Quicksand:wght@300;400;500;600;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
 
 /* <===================CSS VARIABLES===================> */
 
@@ -19,8 +19,11 @@
 *{
     box-sizing: border-box;
     margin: 0;
-    font-family: 'Cinzel', serif;
+    font-family: 'Cinzel', 'Noto Sans', serif;
     color: #212121;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 html{
     scroll-behavior: smooth;
@@ -32,6 +35,39 @@ h1{
     font-size: var(--h1-size);
     font-weight: 500;
     line-height: var(--h1-size);
+}
+
+/* Special styling for couple names */
+.couple-names {
+    font-family: 'Great Vibes', 'Dancing Script', cursive;
+    font-size: 6rem;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: center;
+    color: #8B4A8C;
+    margin: 20px 0;
+    text-shadow: 0 3px 6px rgba(139, 74, 140, 0.3);
+    background: linear-gradient(135deg, #8B4A8C 0%, #B565A7 50%, #D4A5C2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Vietnamese text optimization */
+.vietnamese-text {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    word-spacing: 0.05em;
+}
+
+/* Vietnamese uppercase text optimization */
+h2, h3, .uppercase-text {
+    font-family: 'Noto Sans', 'Source Sans 3', sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: none !important;
+    font-feature-settings: "kern" 1, "liga" 1;
 }
 h2{
     font-size: var(--h2-size);
@@ -53,9 +89,11 @@ h3{
     opacity: 1;
   }
 .text{
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: var(--text-size);
-    line-height: 1.3rem;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 .huge-btn{
     display: block;
@@ -75,11 +113,13 @@ h3{
     position: absolute;
     left: 0;
     width: 100vw;
+    z-index: 1;
 }
 .h-reposition-container{
     width: 100vw;
     position: relative;
     top: 100vh;
+    z-index: 1;
 }
 /* <===================NAVBAR===================> */
 
@@ -105,12 +145,14 @@ nav ul li{
     margin: 0 5px;
 }
 nav ul li a{
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 17px;
+    font-weight: 600;
     padding: 7px 13px;
     border-radius: 3px;
-    text-transform: uppercase;
+    text-transform: none;
     text-decoration: none;
+    letter-spacing: 0.05em;
 }
 a:hover{
     color: orange;
@@ -136,6 +178,22 @@ a:hover{
     }
     html{
         font-size: 10px;
+    }
+    .couple-names {
+        font-size: 4rem;
+        line-height: 1.2;
+    }
+    .parting-message {
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        padding: 3vh var(--horizontal-margin-spacing);
+    }
+    .parting-message h1{
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+    }
+    .parting-message p {
+        font-size: 1.3rem;
     }
 }
 @media (max-width:570px){
@@ -170,7 +228,114 @@ a:hover{
     }
 }
 
+/* <===================COUNTDOWN===================> */
+
+.countdown-container {
+    margin: 20px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-family: 'Cinzel', 'Noto Sans', serif;
+    font-weight: bold;
+}
+
+.countdown-event-info {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.countdown-event-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Noto Sans', sans-serif;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.countdown-completed {
+    text-align: center;
+    padding: 20px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 5px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    color: #f0f0f0;
+    font-family: 'Noto Sans', sans-serif;
+    text-transform: none;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+@media (max-width: 570px) {
+    #countdown {
+        gap: 15px;
+    }
+    .countdown-timer {
+        gap: 15px;
+    }
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+    .countdown-item {
+        min-width: 60px;
+    }
+    .countdown-event-name {
+        font-size: 1.1rem;
+    }
+}
+
 /* <===================HOME===================> */
+
+.home h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.home h3 .fa-heart {
+    color: #E91E63;
+    margin-left: 10px;
+    animation: heartbeat 2s ease-in-out infinite;
+    text-shadow: 0 2px 4px rgba(233, 30, 99, 0.3);
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
 
 .container-out{
     margin-top: 10vh;
@@ -179,9 +344,24 @@ a:hover{
     justify-content: space-between;
 }
 .home-img{
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/chuck-842bb.appspot.com/o/GurAmanWed%2Fpic1.jpg?alt=media&token=5dbf5af2-354b-464c-9db2-7da57b484eda);
+    background-image: url(https://lh3.googleusercontent.com/d/1peWsXTnSd9d4ca30P-f_ZxD8KxDS3rec);
+    background-size: cover;
+    background-position: 50px center;
+    background-repeat: no-repeat;
+    height: 110vh;
+    width: 50vw;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.home-img-new{
+    background-image: url(https://lh3.googleusercontent.com/d/1SKnBxsT64_Le0XYNheiUBd7rMdo7NpcF);
     background-size: cover;
     background-position: center;
+    height: 110vh;
+    width: 50vw;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 .home-img-sm{
     display: none;
@@ -205,6 +385,12 @@ a:hover{
     #home-img-lg{
         display: none;
     }
+    .home-img-new{
+        width: 100%;
+        height: 60vh;
+        margin: 20px 0;
+        border-radius: 10px;
+    }
 }
 
 /* <===================TIMELINE===================> */
@@ -218,6 +404,7 @@ a:hover{
     width: 100%;
     backdrop-filter: blur(4px);
     padding: 8vh var(--horizontal-margin-spacing);
+    z-index: 5;
 }
 .timeline-container{
     display: flex;
@@ -225,17 +412,61 @@ a:hover{
     margin: 8vh 0;
 }
 .timeline-img{
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/chuck-842bb.appspot.com/o/GurAmanWed%2Fpic2.jpg?alt=media&token=7a0e5f94-d68e-4d32-bd3b-2a82b7acd40c);
+    background-image: url(images/DSC05998.JPG);
     height: 70vh;
     width: 30vw;
-    background-position: center;
+    background-position: center 20%;
     background-size: cover;
 }
 .timings{
     margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
-.timeline-container .text{
-    padding: 1rem 0 1rem 4rem;
+
+.timing-item {
+    margin-bottom: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.timing-item .text{
+    padding: 0.2rem 0 0.3rem 4rem;
+    margin: 0;
+}
+
+.timing-item h3 {
+    margin: 0 0 0.2rem 0;
+    padding-left: 4rem;
+}
+
+.event-link {
+    display: inline-block;
+    margin: 0.3rem 0 0 4rem;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    border: none;
+    cursor: pointer !important;
+    z-index: 100 !important;
+    position: relative;
+    pointer-events: auto !important;
+}
+
+.event-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    color: white;
 }
 @media (max-width:1000px){
     .timeline{
@@ -254,6 +485,22 @@ a:hover{
         height: 50vh;
         width: 100%;
     }
+    .timing-item h3 {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .timing-item .text{
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .event-link {
+        margin: 0.5rem auto 1rem auto;
+        display: block;
+        text-align: center;
+        width: fit-content;
+    }
 }
 
 /* <===================STORY===================> */
@@ -263,6 +510,33 @@ a:hover{
     display: flex;
     flex-direction: row;
     margin: 10vh 0;
+    position: relative;
+    background-image: url(images/DSC05947.JPG);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    padding: 8vh var(--horizontal-margin-spacing);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#story::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+    z-index: 1;
+}
+
+#story > * {
+    position: relative;
+    z-index: 2;
 }
 #story h3{
     width: 40vw;
@@ -297,42 +571,103 @@ a:hover{
 /* <===================GALLERY===================> */
 
 .gallery{
-    display: flex;
-    padding: 20vh 0;
-    justify-content: center;
-    align-items: center;
+    padding: 15vh 0;
+    text-align: center;
 }
+
+.gallery-title {
+    font-size: 2.5rem;
+    margin-bottom: 8vh;
+    color: #333;
+    font-family: 'Playfair Display', 'Cinzel', serif;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .gallery-img{
-    width: 30vw;
-    height: 30vw;
-    margin: 10px;
+    width: 100%;
+    height: 300px;
     background-size: cover;
     background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
-.gallery-img:nth-child(1){
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/chuck-842bb.appspot.com/o/GurAmanWed%2Fpic3.jpg?alt=media&token=32a76585-cbeb-41f5-8921-6ad1ff60aa79);
-    background-position-x: right;
+
+.gallery-img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
-.gallery-img:nth-child(3){
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/chuck-842bb.appspot.com/o/GurAmanWed%2Fpic4.jpg?alt=media&token=3bde5693-e5c8-412d-bd47-1ef972258406);
+
+.gallery-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(139, 74, 140, 0.1), rgba(181, 101, 167, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
-.gallery-img:nth-child(2){
-    background-position-y: top;
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/chuck-842bb.appspot.com/o/GurAmanWed%2Fpic5.jpg?alt=media&token=d9ef9475-ec6d-41ca-8cfd-3e45b70139d3);
+
+.gallery-img:hover::before {
+    opacity: 1;
+}
+
+.gallery-img-1 {
+    background-image: url(images/DSC05673\(1\).JPG);
+}
+.gallery-img-2 {
+    background-image: url(images/DSC05888\(1\).JPG);
+}
+.gallery-img-3 {
+    background-image: url(images/DSC06287.JPG);
+}
+.gallery-img-4 {
+    background-image: url(images/DSC06477.JPG);
+}
+.gallery-img-5 {
+    background-image: url(images/DSC06492.JPG);
+}
+.gallery-img-6 {
+    background-image: url(images/DSC06533.JPG);
 }
 @media (max-width:1000px){
-    .gallery{
-        flex-direction: column;
-        padding: 0;
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 20px;
     }
-    .gallery-img{
-        width: 100vw;
-        height: 90vw;
-        margin: 2px 0;
+    .gallery-img {
+        height: 250px;
     }
-    .gallery-img:nth-child(2){
-        position: relative;
-        left: -(var(--horizontal-margin-spacing));
+    .gallery-title {
+        font-size: 2rem;
+        margin-bottom: 6vh;
+    }
+}
+
+@media (max-width:768px){
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    .gallery-img {
+        height: 300px;
+    }
+    .gallery-title {
+        font-size: 1.8rem;
+        margin-bottom: 5vh;
     }
 }
 
@@ -345,27 +680,64 @@ a:hover{
     font-size: 4rem;
     text-align: center;
     margin: auto;
+    font-family: 'Playfair Display', 'Cinzel', serif;
+    font-style: italic;
+    line-height: 1.3;
+    color: #444;
 }
 .author{
     text-align: center;
-    margin: 20px 0 10vh 0;
+    margin: 20px 0 10px 0;
+    font-style: italic;
+}
+.quote-author{
+    text-align: center;
+    font-size: 1.1rem;
+    color: #8B4A8C;
+    font-weight: 600;
+    margin-bottom: 10vh;
+    font-family: 'Cinzel', serif;
 }
 @media (max-width:1570px){
     .quote h1{
         font-size: 2rem;
         line-height: 2rem;
+        width: 80vw;
+    }
+    .author{
+        font-size: 1.1rem;
+        line-height: 1.4;
+        width: 85vw;
+        margin: 20px auto 10px auto;
+    }
+}
+
+@media (max-width:768px){
+    .quote h1{
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        width: 90vw;
+        padding: 0 10px;
+    }
+    .author{
+        font-size: 1rem;
+        line-height: 1.3;
+        width: 90vw;
+        padding: 0 15px;
+    }
+    .quote-author{
+        font-size: 1rem;
     }
 }
 
 /* <===================HANDS===================> */
 
 .hands{
-    height: 120vh;
+    height: 150vh;
     width: 100%;
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/chuck-842bb.appspot.com/o/GurAmanWed%2Fpic6.jpg?alt=media&token=febecde7-9479-4a1e-8402-28f021228422);
+    background-image: url(images/DSC06343.JPG);
     background-size: cover;
-    background-position-y: center;
-    background-attachment: fixed;
+    background-position: center 20%;
     background-repeat: no-repeat;
 }
 
@@ -378,8 +750,14 @@ a:hover{
 .stay-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 20vh 0;
+    gap: 30px;
+}
+
+.stay-item {
+    flex: 1;
+    max-width: calc(33.333% - 20px);
 }
 .stay-item .text{
     margin: 20px 0;
@@ -388,13 +766,156 @@ a:hover{
     cursor: pointer;
     text-decoration: underline;
 }
+.map-container {
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: white;
+    padding: 5px;
+}
+.map-container iframe {
+    border-radius: 8px;
+    display: block;
+}
 @media (max-width:1000px){
     .stay-container{
         flex-direction: column;
         margin: 10px 0;
+        gap: 40px;
     }
     .stay-item{
-        margin: 2vh 0;
+        margin: 0;
+        max-width: 100%;
+    }
+    .map-container {
+        margin: 25px 0;
+    }
+}
+
+/* <===================GIFT SECTION===================> */
+
+#gift-section {
+    padding: 10vh var(--horizontal-margin-spacing);
+    background-color: var(--grey-color-light);
+    backdrop-filter: blur(4px);
+}
+
+.gift-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gift-container h2 {
+    margin-bottom: 30px;
+    font-size: var(--h2-size);
+}
+
+.gift-intro {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #555;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qr-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.qr-item {
+    text-align: center;
+    flex: 1;
+    max-width: 280px;
+    background: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(139, 74, 140, 0.15);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.qr-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(139, 74, 140, 0.25);
+    border-color: rgba(139, 74, 140, 0.3);
+}
+
+.qr-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.qr-icon {
+    color: #E91E63;
+    font-size: 1.2rem;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.qr-item h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+.qr-code {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 2px dashed #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.qr-code:hover {
+    border-color: #8B4A8C;
+    background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
+}
+
+.qr-code img {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.qr-code img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.qr-info {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .qr-container {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+    
+    .qr-item {
+        max-width: 280px;
+        width: 100%;
+    }
+    
+    .qr-code img {
+        width: 150px;
+        height: 150px;
     }
 }
 
@@ -418,7 +939,7 @@ a:hover{
     display: block;
     height: 100vh;
     width: 40vw;
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/chuck-842bb.appspot.com/o/GurAmanWed%2Fpic7.jpg?alt=media&token=79b8d974-04ff-4b2d-bed5-82638399b34e);
+    background-image: url(images/DSC06098.JPG);
     background-size: cover;
     background-position-y: top;
     background-repeat: no-repeat;
@@ -455,12 +976,37 @@ a:hover{
 
 
 /* <===================PARTING MESSAGE===================> */
-.parting-message h1{
-    margin-top: 10vh;
+.parting-message {
     text-align: center;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+    padding: 5vh var(--horizontal-margin-spacing);
+    background: linear-gradient(135deg, rgba(139, 74, 140, 0.05) 0%, rgba(181, 101, 167, 0.05) 100%);
+    border-radius: 20px;
+    backdrop-filter: blur(2px);
 }
+
+.parting-message h1{
+    font-family: 'Great Vibes', 'Dancing Script', cursive;
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #8B4A8C 0%, #B565A7 50%, #D4A5C2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 3px 6px rgba(139, 74, 140, 0.1);
+}
+
+.parting-message p {
+    font-size: 1.5rem;
+    color: #555;
+    margin: 0;
+    font-weight: 500;
+}
+
 .parting-message button{
-    margin:  10vh auto;
+    margin: 10vh auto;
 }
 
 /* <===================FOOTER===================> */
