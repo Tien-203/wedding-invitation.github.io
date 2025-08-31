@@ -88,7 +88,7 @@ function updateCountdown() {
         },
         {
             name: 'Tiệc Báo Hỷ',
-            date: new Date('2025-10-26T18:00:00').getTime(),
+            date: new Date('2025-10-25T18:00:00').getTime(),
             emoji: '🎉',
             color: '#667eea'
         }
