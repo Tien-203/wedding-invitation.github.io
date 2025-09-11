@@ -2,27 +2,46 @@ const parallax = document.getElementById("home-img-lg");
 const parallax1 = document.getElementById("parallax1");
 const parallax2 = document.getElementById("parallax2");
 
+// Check if device is mobile
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
 window.addEventListener("scroll", function()
 {
+    // Disable parallax on mobile devices
+    if (isMobile()) return;
+    
     let offset = window.pageYOffset;
     // Start showing left 2/3 of image, then gradually reveal the rest
     let xPosition = Math.max(-150, offset*(-0.2) + 100);
-    parallax.style.backgroundPositionX = xPosition + "px";
+    if (parallax) {
+        parallax.style.backgroundPositionX = xPosition + "px";
+    }
 })
-
 
 window.addEventListener("scroll", function()
 {
+    // Disable parallax on mobile devices
+    if (isMobile()) return;
+    
     let offset = window.pageYOffset;
     offset-=3100;
-    parallax1.style.backgroundPositionY = offset*(0.1) + "px";
+    if (parallax1) {
+        parallax1.style.backgroundPositionY = offset*(0.1) + "px";
+    }
 })
 
 window.addEventListener("scroll", function()
 {
+    // Disable parallax on mobile devices
+    if (isMobile()) return;
+    
     let offset = window.pageYOffset;
     offset-=4800;
-    parallax2.style.backgroundPositionY = offset*(-0.1) + "px";
+    if (parallax2) {
+        parallax2.style.backgroundPositionY = offset*(-0.1) + "px";
+    }
 })
 
 function myFunction() {
@@ -152,3 +171,49 @@ function updateCountdown() {
 // Update countdown every second
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// QR Code download functionality
+function downloadQRCode(imageUrl, filename) {
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    link.download = filename;
+    link.target = '_blank';
+    
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Add click event listeners to QR code images when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Find all QR code images
+    const qrImages = document.querySelectorAll('.qr-item img');
+    
+    qrImages.forEach((img, index) => {
+        img.addEventListener('click', function() {
+            const imageUrl = this.src;
+            let filename;
+            
+            // Determine filename based on the QR code
+            if (index === 0) {
+                filename = 'QR_Co_Dau_Thu_Hang.png';
+            } else if (index === 1) {
+                filename = 'QR_Chu_Re_Ngoc_Tien.png';
+            } else {
+                filename = `QR_Code_${index + 1}.png`;
+            }
+            
+            // Download the image
+            downloadQRCode(imageUrl, filename);
+        });
+        
+        // Add title attribute for better UX
+        if (index === 0) {
+            img.title = 'Click để tải xuống QR Code Cô Dâu';
+        } else if (index === 1) {
+            img.title = 'Click để tải xuống QR Code Chú Rể';
+        }
+    });
+});
