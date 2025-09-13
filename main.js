@@ -217,3 +217,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Background Music Control
+let isPlaying = true;
+const music = document.getElementById('backgroundMusic');
+const musicToggle = document.getElementById('musicToggle');
+const musicIcon = document.getElementById('musicIcon');
+
+function toggleMusic() {
+    if (isPlaying) {
+        music.pause();
+        musicIcon.className = 'fas fa-volume-mute';
+        musicToggle.classList.add('muted');
+        musicToggle.title = 'Bật nhạc nền';
+        isPlaying = false;
+    } else {
+        music.play().catch(e => {
+            console.log('Auto-play was prevented:', e);
+        });
+        musicIcon.className = 'fas fa-volume-up';
+        musicToggle.classList.remove('muted');
+        musicToggle.title = 'Tắt nhạc nền';
+        isPlaying = true;
+    }
+}
+
+// Auto-play music when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Try to play music immediately
+    music.play().catch(e => {
+        console.log('Auto-play was prevented, will play on first user interaction:', e);
+        // If auto-play is blocked, play on first user interaction
+        document.addEventListener('click', function() {
+            if (isPlaying) {
+                music.play().catch(e => {
+                    console.log('Auto-play was prevented:', e);
+                });
+            }
+        }, { once: true });
+    });
+    
+    // Set initial UI state for music playing
+    musicIcon.className = 'fas fa-volume-up';
+    musicToggle.classList.remove('muted');
+    musicToggle.title = 'Tắt nhạc nền';
+});
+
+// Set initial volume
+music.volume = 0.3;

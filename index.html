@@ -9,6 +9,18 @@
     <title>Thiệp Cưới</title>
 </head>
 <body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="background_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Music Control Button -->
+    <div class="music-control">
+        <button id="musicToggle" onclick="toggleMusic()">
+            <i class="fas fa-volume-up" id="musicIcon"></i>
+        </button>
+    </div>
 
 
     <nav>
@@ -149,12 +161,20 @@
                             <div class="qr-header">
                                 <h3>Cô Dâu - Thu Hằng</h3>
                             </div>
+                            <div class="bank-info">
+                                <p><strong>STK:</strong> 5401052152</p>
+                                <p><strong>Tên CTK:</strong> HO THI THU HANG</p>
+                            </div>
                             <img src="https://lh3.googleusercontent.com/d/1AhdWZ9GSiqRBI1AYdvh0aalvW3TsN10X" alt="Hình Cô Dâu" />
                             <p class="qr-info text">Quét mã để gửi lời chúc</p>
                         </div>
                         <div class="qr-item reveal">
                             <div class="qr-header">
                                 <h3>Chú Rể - Ngọc Tiến</h3>
+                            </div>
+                            <div class="bank-info">
+                                <p><strong>STK:</strong> 060274444137</p>
+                                <p><strong>Tên CTK:</strong> HOANG NGOC TIEN</p>
                             </div>
                             <img src="https://lh3.googleusercontent.com/d/1IsPwXHbzYZNo-5Yomj7O7yfAb0-r65nx" alt="Hình Chú Rể" />
                             <p class="qr-info text">Quét mã để gửi lời chúc</p>
