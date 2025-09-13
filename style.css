@@ -1800,7 +1800,7 @@ a:hover{
 
 .music-control {
     position: fixed;
-    top: 80px;
+    bottom: 30px;
     right: 20px;
     z-index: 1001;
 }
@@ -1809,10 +1809,10 @@ a:hover{
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     color: white;
-    font-size: 18px;
+    font-size: 11px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
     transition: all 0.3s ease;
@@ -1837,14 +1837,14 @@ a:hover{
 
 @media (max-width: 768px) {
     .music-control {
-        top: 70px;
+        bottom: 20px;
         right: 15px;
     }
     
     #musicToggle {
-        width: 45px;
-        height: 45px;
-        font-size: 16px;
+        width: 28px;
+        height: 28px;
+        font-size: 10px;
     }
 }
 
